@@ -1,0 +1,24 @@
+<h2>Formulaire</h2>
+
+{% if ordinateur is defined %}
+<form method="post" name="formulaire" action="{{ url('ordinateur.save', {id: ordinateur.id}) }}">
+
+    <input type="hidden" name="id" value={{ordinateur.id}} />
+
+    <label for="name">Utilisateur : </label>
+    <input type="text" name="utilisateur" value={{ordinateur.utilisateur}} />
+
+    <label for="name">Bureau : </label>
+    <input type="text" name="bureau" value={{ordinateur.bureau}}  />
+    {% else %}
+<form method="post" name="formulaire" action="{{ url('ordinateur.save') }}">
+    <label for="name">utilisateur : </label>
+    <input type="text" name="utilisateur" />
+
+    <label for="name">bureau : </label>
+    <input type="text" name="bureau" />
+    {% endif %}
+
+    <button type="submit">Envoyer</button>
+
+</form>
